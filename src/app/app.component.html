@@ -1,0 +1,21 @@
+<h1>Series Watched</h1>
+<form (ngSubmit)="addShow()" #showForm="ngForm">
+  <label for="show">Show:</label>
+  <input type="text" id="show" [(ngModel)]="show.show" name="show">
+  <label for="seasons">Seasons:</label>
+  <input type="text" id="seasons" [(ngModel)]="show.seasons" name="seasons">
+  <label for="type">Show:</label>
+  <select [(ngModel)]="show.type" id="type" name="type">
+    <option value="Animated">Animated</option>
+    <option value="Reality">Reality</option>
+    <option value="Comedy">Comedy</option>
+  </select>
+  <button type="submit">Add Show</button>
+</form>
+<ng-container *ngIf="series">
+  <ul *ngFor="let s of series">
+    <li>Show: {{s.show}}</li>
+    <li>Seasons: {{s.seasons}}</li>
+    <li>Type: {{s.type}}</li>
+  </ul>
+</ng-container>
